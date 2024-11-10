@@ -26,14 +26,14 @@ offset_bottom = 411.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Control" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Audio" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
