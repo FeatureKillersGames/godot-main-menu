@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwdyh8ph7ss66"]
+
+[ext_resource type="Script" path="res://addons/godot-fast-ui/nodes/components/ui_component.gd" id="1_yop0a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_il6l0"]
+
+[sub_resource type="Sky" id="Sky_fh7en"]
+sky_material = SubResource("ProceduralSkyMaterial_il6l0")
+
+[sub_resource type="Environment" id="Environment_p4rkx"]
+background_mode = 2
+sky = SubResource("Sky_fh7en")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="MainMenuScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11287, 0.60919)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p4rkx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.91197, 0.410257, 0, -0.410257, 0.91197, 0, 0.641518, 1.643)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103178, -0.505174, -0.468714)
+size = Vector3(2.27832, 0.761841, 1)
+
+[node name="FUIComponent" type="Node" parent="." node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_yop0a")
+instigator = NodePath("..")
+path = "res://scenes/ui/main_menu.tscn"
+key = "main_menu"
+on_top = false
+reversable = false

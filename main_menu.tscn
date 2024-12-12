@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwm8uiibbdebm"]
+
+[ext_resource type="Theme" uid="uid://ddp7rsmwqgu3c" path="res://templates/godot-menu-banch/main_theme.tres" id="1_0e2fs"]
+[ext_resource type="Script" path="res://addons/godot-fast-ui/nodes/components/ui_component.gd" id="1_x57jt"]
+[ext_resource type="Script" path="res://addons/godot-transitions/transaction_component.gd" id="3_04g36"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0e2fs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -284.0
+offset_right = 890.0
+offset_bottom = -144.0
+text = "Мега крутое название игры"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.237
+anchor_top = 0.356
+anchor_right = 0.237
+anchor_bottom = 0.356
+offset_left = -263.04
+offset_top = 63.52
+offset_right = 236.96
+offset_bottom = 302.52
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Играть"
+alignment = 0
+
+[node name="FUIComponent" type="Node" parent="Panel/VBoxContainer/Button" node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_x57jt")
+instigator = NodePath("..")
+signal_name = "pressed"
+action = 2
+key = "main_menu"
+reversable = true
+all_visible = false
+
+[node name="TransitionComponent" type="Node" parent="Panel/VBoxContainer/Button" node_paths=PackedStringArray("instigator")]
+script = ExtResource("3_04g36")
+instigator = NodePath("..")
+lvl_path = "res://scenes/main_train.tscn"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Настройки"
+alignment = 0
+
+[node name="FUIComponent" type="Node" parent="Panel/VBoxContainer/Button2" node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_x57jt")
+instigator = NodePath("..")
+signal_name = "pressed"
+path = "res://scenes/ui/settings.tscn"
+key = "settings"
+on_top = false
+reversable = true
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Об авторах"
+alignment = 0
+
+[node name="FUIComponent" type="Node" parent="Panel/VBoxContainer/Button3" node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_x57jt")
+instigator = NodePath("..")
+signal_name = "pressed"
+path = "res://scenes/ui/authors.tscn"
+key = "authors"
+on_top = false
+reversable = true

@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx7qvkcu34tfp"]
+
+[ext_resource type="Theme" uid="uid://ddp7rsmwqgu3c" path="res://templates/godot-menu-banch/main_theme.tres" id="1_jf0bl"]
+[ext_resource type="Script" path="res://addons/godot-fast-ui/nodes/components/ui_component.gd" id="1_xlyln"]
+
+[node name="Authors" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jf0bl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -284.0
+offset_right = 780.0
+offset_bottom = -144.0
+grow_vertical = 2
+text = "Об авторах"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Label2"]
+layout_mode = 0
+offset_top = 193.0
+offset_right = 1408.0
+offset_bottom = 576.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Label2/ScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/Label2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1408, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 38
+text = "Мы — небольшая инди-команда Feature Killers. Наша команда полна энтузиазма, идей и стремления создавать удивительные вещи.
+
+Наши соцсети: "
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Label2/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="LinkButton" type="LinkButton" parent="Panel/Label2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "vk"
+underline = 1
+uri = "https://vk.com/featurekillers"
+
+[node name="LinkButton2" type="LinkButton" parent="Panel/Label2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "tg"
+underline = 1
+uri = "https://t.me/featurekillers"
+
+[node name="LinkButton3" type="LinkButton" parent="Panel/Label2/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "itch.io"
+underline = 1
+uri = "https://featurekillers.itch.io/"
+
+[node name="Button" type="Button" parent="Panel/Label2/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 38
+text = "
+Лицензии"
+
+[node name="FUIComponent" type="Node" parent="Panel/Label2/ScrollContainer/VBoxContainer/Button" node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_xlyln")
+instigator = NodePath("..")
+signal_name = "pressed"
+path = "res://scenes/ui/licenses.tscn"
+key = "licenses"
+on_top = false
+reversable = true
+
+[node name="Button" type="Button" parent="Panel/Label2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 571.5
+offset_right = 488.0
+offset_bottom = 630.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Назад"
+alignment = 0
+
+[node name="FUIComponent" type="Node" parent="Panel/Label2/Button" node_paths=PackedStringArray("instigator")]
+script = ExtResource("1_xlyln")
+instigator = NodePath("..")
+signal_name = "pressed"
+action = 1
+all_layers = false
